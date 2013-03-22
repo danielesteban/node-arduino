@@ -1,0 +1,27 @@
+{
+    "name": "arduino",
+    "version": "0.0.1",
+    "description": "Node module to interact with the Arduino",
+    "author": {
+        "name": "Daniel Esteban",
+        "email": "dani@hellacoders.com",
+        "url": "https://github.com/danielesteban"
+    },
+    "main": "./arduino",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/danielesteban/node-arduino.git"
+    },
+    "maintainers": [
+        {
+            "name": "Daniel Esteban",
+            "email": "dani@hellacoders.com"
+        }
+    ],
+    "dependencies": {
+        "serialport" : "latest"
+    },
+    "engines": {
+        "node": ">= 0.10.0"
+    }
+}
