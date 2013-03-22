@@ -13,6 +13,7 @@ Node module to interact with the Arduino
 
 ```javascript
 var Arduino = require('arduino');
+
 Arduino.on('req', function(device, func, data) {
 	switch(func) {
 		case 0:
@@ -25,6 +26,16 @@ Arduino.on('req', function(device, func, data) {
 });
 
 Arduino.connect('/dev/tty.usbserial');
+
+//To send a Request to the arduino:
+var device_id = 1,
+	func = 255,
+	data = new Buffer(['d', 'a', 't', 'a']);
+
+Arduino.req(device_id, func, data);
+
+//There's also a helper for sending large numbers (like timestamps)...
+Arduino.req(1, 0, Arduino.numToBuffer(3141592653));
 ```
 
 **License:**
