@@ -1,7 +1,7 @@
 {
     "name": "arduino",
     "version": "0.0.1",
-    "description": "A node module for communication with the Arduino",
+    "description": "A node module for interfacing with the Arduino",
     "author": {
         "name": "Daniel Esteban",
         "email": "dani@hellacoders.com",

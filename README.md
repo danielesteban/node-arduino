@@ -1,7 +1,7 @@
 node-arduino
 ============
 
-Node module to interact with the Arduino
+A node module for interfacing with the Arduino
 
 **Installation:**
 
