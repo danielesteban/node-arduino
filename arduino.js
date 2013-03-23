@@ -18,7 +18,7 @@ function processData() {
 	}
 }
 
-module.exports.connect = function(port) {
+module.exports.connect = function(port, callback) {
 	serial = new SerialPort.SerialPort(port || '/dev/tty.usbserial', {
 		parser: SerialPort.parsers.raw,
 		baudrate: 19200
@@ -35,6 +35,7 @@ module.exports.connect = function(port) {
 			module.exports.emit('error', err);
 		});
 	});
+	callback && serial.on('open', callback);
 };
 
 module.exports.req = function(device, func, data) {
