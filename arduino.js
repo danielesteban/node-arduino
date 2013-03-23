@@ -57,7 +57,7 @@ module.exports.req = function(device, func, data, callback) {
 		callbacks[callbackId] = callback;
 		params.push(callbackId);
 	}
-	var buffer = Buffer.concat([new Buffer(params), data]);
+	var buffer = Buffer.concat([new Buffer(params), data || new Buffer(0)]);
 	serial.write(new Buffer([buffer.length]));
 	serial.write(buffer);
 };
