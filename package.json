@@ -1,6 +1,6 @@
 {
     "name": "arduino",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A node module for interfacing with the Arduino",
     "author": {
         "name": "Daniel Esteban",

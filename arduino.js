@@ -24,10 +24,14 @@ module.exports.connect = function(port) {
 		baudrate: 19200
 	});
 	rxBufLen = 0;
-	serial.on('data', function (data) {
+	serial.on('data', function(data) {
 		if(!rxBuf) rxBuf = data;
 		else rxBuf = Buffer.concat([rxBuf, data]);
 		processData();
+	});
+	serial.on('error', function(err) {
+		serial = null;
+		module.exports.emit('error', err);
 	});
 };
 
