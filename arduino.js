@@ -38,7 +38,7 @@ module.exports.connect = function(port) {
 };
 
 module.exports.req = function(device, func, data) {
-	if(!serial) throw new Error('You should call Arduino.connect() before calling Arduino.req()');
+	if(!serial) module.exports.emit('error', 'You should call Arduino.connect() before calling Arduino.req()');
 	var buffer = Buffer.concat([new Buffer([device, func]), data]);
 	serial.write(new Buffer([buffer.length]));
 	serial.write(buffer);
