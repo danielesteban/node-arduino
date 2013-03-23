@@ -5,6 +5,7 @@ var SerialPort = require('serialport'),
 	newCallbackId = (function () {
 		var id = 0;
 		return function() {
+			id > 255 && (id = 0);
 			return id++;
 		};
 	})();
