@@ -5,9 +5,7 @@ A node module for interfacing with the Arduino
 
 **Installation:**
 
-	git clone git://github.com/danielesteban/node-arduino.git arduino
-	cd arduino
-	npm install
+	npm install git://github.com/danielesteban/node-arduino.git
 
 **Usage:**
 
@@ -25,14 +23,22 @@ Arduino.on('req', function(device, func, data) {
 	}
 });
 
-Arduino.connect('/dev/tty.usbserial');
+Arduino.on('error', function(err) {
+	console.log(err);
+});
+
+Arduino.connect('/dev/tty.usbserial', function() {
+	console.log('Connection successful');
+});
 
 //To send a Request to the arduino:
 var device_id = 1,
 	func = 255,
 	data = new Buffer(['d', 'a', 't', 'a']);
 
-Arduino.req(device_id, func, data);
+Arduino.req(device_id, func, data, function(data) {
+	//Do something with the returned value
+});
 
 //There's also a helper for sending large numbers (like timestamps)...
 Arduino.req(1, 0, Arduino.numToBuffer(3141592653));
