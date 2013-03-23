@@ -30,8 +30,10 @@ module.exports.connect = function(port) {
 		processData();
 	});
 	serial.on('error', function(err) {
-		serial = null;
-		module.exports.emit('error', err);
+		serial.close(function() {
+			serial = null;
+			module.exports.emit('error', err);
+		});
 	});
 };
 
